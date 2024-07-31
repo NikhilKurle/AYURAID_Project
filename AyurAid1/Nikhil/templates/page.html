@@ -1,0 +1,668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#4C51BF" />
+    <link rel="shortcut icon" href="../static/assets/img/ayucare%20logo.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="../static/assets/img/apple-icon.png"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/creativetimofficial/tailwind-starter-kit/compiled-tailwind.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>AyurAid</title>
+    <style>
+        #typing-animation {
+            font-family: 'Nunito Sans', sans-serif;
+            font-size: 18px;
+            font-weight: 500;
+            color: #333;
+        }
+        .sliding-window {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .book {
+            flex: 0 0 auto;
+            width: 250px;
+            text-align: center;
+            margin-right: 30px;
+        }
+        .book img {
+            width: auto;
+            height: auto;
+        }
+    </style>
+</head>
+<body class="text-gray-800 antialiased">
+
+<!-- Navigation Bar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-indigo-600">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="../static/assets/img/AyurAid_logo.png" alt="AyurAid Logo" width="30" height="24" class="d-inline-block align-text-top">
+      AyurAid
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('service') }}">Services</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Main Section -->
+<main>
+  <div class= "relative pt-20 pb-32 flex content-center items-center justify-center" style="min-height: 75vh;" >
+      <div class="absolute top-0 w-full h-full bg-center bg-cover" style='background-image: url("../static/assets/img/m.png");'>
+      <span class="w-full h-full absolute  "></span>
+  </div>
+  <div class="container relative mx-auto">
+    <div class="items-center flex flex-wrap">
+      <div class="w-full lg:w-6/12 px-4 ml-auto mr-auto text-center">
+        <div class="pr-12">
+          <h1 class="pt-20 font-bold text-5xl text-black">
+            AyurAid
+          </h1>
+            <br><br>
+          <p class="mt-4 text-lg text-black">
+            <div id="typing-animation" class="mt-4 text-lg text-black"></div>
+          </p>
+            <br><br>
+            <center>
+              <a href="./chatbot.html"> 
+                <button class="bg-white text-gray-800 active:bg-gray-100 text-xs font-bold uppercase px-8 py-2 rounded outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 rounded-full transition duration-150
+                    ease-in-out bg-gradient-to-r from-green-400 to-blue-500 hover:from-gray-500 hover:to-gray-200 ..."
+                  type="button" id="beginButton"
+                  style="transition: all 0.15s ease 0s;">
+                    Enter to the ChatBot
+                </button></a>
+            </center>
+              <br><br>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden" style="height: 70px;">
+    <svg
+      class="absolute bottom-0 overflow-hidden"
+      xmlns="http://www.w3.org/2000/svg"
+      preserveAspectRatio="none"
+      version="1.1"
+      viewBox="0 0 2560 100"
+      x="0"
+      y="0"
+    >
+      <polygon
+        class="text-gray-300 fill-current"
+        points="2560 0 2560 100 0 100"
+      ></polygon>
+    </svg>
+  </div>
+</div>
+<section class="pb-20 bg-gray-300 -mt-24  ">
+  <div class="container mx-auto px-4">
+    <div class="flex flex-wrap ">
+      <div class="lg:pt-12 pt-6 w-full md:w-4/12 px-4 text-center">
+        <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+          <div class="px-4 py-5 flex-auto">
+            <div class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-red-400">
+              <i class="fas fa-award"></i>
+            </div>
+             <!--  <a href="{{ url_for('service') }}"> -->
+              <div class="text-center">
+                <h2 class="text-3xl font-bold text-blue-700 mb-6">Formulation recommendation</h2>
+                <p class="text-lg text-gray-700 mb-6">
+                  Our Chatbot Model Gives the Best  <br> <span class="text-blue-800 font-semibold">Medicine</span>, <span class="text-blue-800 font-semibold">Treatment  Recommendations</span>, <span class="text-blue-800 font-semibold">Vedic Recipes</span>, & <span class="text-blue-800 font-semibold">Best Natural Herbal </span> For symptoms. providing Solutions.
+                </p>
+              </div>
+              
+                  </a>
+          </div>
+        </div>
+      </div>
+      <div class="w-full md:w-4/12 px-4 text-center">
+        <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+          <div class="px-4 py-5 flex-auto">
+            <div class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-blue-400">
+              <i class="fas fa-retweet"></i>
+            </div>
+             <!-- <a href="{{ url_for('service') }}"> -->
+              <div class="text-center">
+                <h2 class="text-3xl font-bold text-green-700 mb-6">ChatBot</h2>
+                <p class="text-lg text-gray-700 mb-6">
+                  Our Ayurvedic medicine recommendation system suggests personalized, natural remedies based on individual symptoms. This brings traditional knowledge to the modern world, offering a holistic approach to health that promotes well-being for all.
+                </p>
+              </div>
+              
+              </a>
+          </div>
+        </div>
+      </div>
+      <div class="pt-6 w-full md:w-4/12 px-4 text-center">
+        <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-8 shadow-lg rounded-lg">
+          <div class="px-4 py-5 flex-auto">
+            <div class="text-white p-3 text-center inline-flex items-center justify-center w-12 h-12 mb-5 shadow-lg rounded-full bg-green-400">
+              <i class="fas fa-fingerprint"></i>
+            </div>
+              <a href="{{ url_for('service') }}">
+                <div class="text-center">
+                  <h2 class="text-3xl font-bold text-green-700 mb-6">Best for Practitioners</h2>
+                  <p class="text-lg text-gray-700 mb-6">
+                    Our Chatbot recommendation system connects practitioners with the Vedic knowledge of the Books to the Real World, offering personalized holistic Search and Best Result. This brings the ancient practice of Ayurveda to the modern world, promoting optimal quick and Easy Solutions.
+                  </p>
+
+                  
+                </div>
+                
+              </a>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+    
+    <!-- SECTION 2 -->
+    <div class="flex flex-wrap items-center mt-32">
+      <div class="w-full md:w-5/12 px-4 mr-auto ml-auto">
+        <div class="text-gray-600 p-3 text-center inline-flex items-center justify-center w-16 h-16 mb-6 shadow-lg rounded-full bg-gray-100">
+          <i class="fas fa-user-friends text-xl"></i>
+        </div>
+        <h3 class="text-3xl mb-2 font-semibold leading-normal">
+        More About AyurAid
+        </h3>
+        <p class="text-lg font-light leading-relaxed mt-4 mb-4 text-gray-700">
+           AyurAid is a chatbot which is Design for Recommending Ayurvedic Medicin for the Any Disease Which is Cured by the Ayurvedic Medicin.  <br>
+
+        </p>
+        <p class="text-lg font-light leading-relaxed mt-0 mb-4 text-gray-700">
+          These models use advanced algorithms such as:
+          <br>LLM : Large Language model
+          <br> ML: Machine Learning
+          <br> NLP: Natural Language Processing
+           <br>And constantly updated medical research to offer a
+              holistic approach to healthcare that empowers users to identify potential health issues
+              and seek timely medical attention. <br>Our Ayurvedic medicine recommendation
+              systems bring traditional knowledge to the modern world, connecting users And practitioners
+              and offering personalized holistic care that promotes optimal wellness for all.
+        </p>
+          
+      </div>
+      <div class="w-full md:w-4/12 px-4 mr-auto ml-auto">
+        <div class="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-lg rounded-lg bg-pink-600">
+
+          
+         <!-- SECTION 2 IMAGE-->
+          <img alt="..." src="../static/assets/img/sec2.jpg"/>
+          <blockquote class="relative p-8 mb-4">
+            <svg
+              preserveAspectRatio="none"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 583 95"
+              class="absolute left-0 w-full block"
+              style="height: 95px; top: -94px;">
+              <polygon
+                points="-30,95 583,95 583,65"
+                class="text-pink-600 fill-current"
+              ></polygon>
+            </svg>
+            <h4 class="text-xl font-bold text-white">
+
+            </h4>
+            <p class="text-md font-light mt-2 text-black">
+              The  Aim  
+              developed a software which will be able to suggest drugs and formulations for a 
+              disease/pharmacological property to the ayurvedic student/ practitioners. We seek to equip 
+              them with useful knowledge for getting ayurvedic drug formulations by making it easier to 
+              access the ayurvedic knowledge found in traditional literature.
+              
+            </p>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--SECTION 02-->
+<!--SECTION 03-->
+
+
+
+<section id="sliding-window-section" class="py-8">
+  <div class="container mx-auto">
+      <h2 class="text-3xl font-bold mb-4">Recommended Books</h2>
+      <div id="sliding-window" class="sliding-window">
+          <div class="book">
+              <a href="https://amzn.eu/d/2dJpwsB"><img src="../static/assets/img/Books/b1.jpg" alt="Book 1"></a>
+              <h5><a href="book1.html">Database on Medicinal Plants used in Ayurveda (Volume 8)</a></h5>
+          </div>
+          <div class="book">
+              <a href="https://amzn.eu/d/ik2QbTF"><img src="../static/assets/img/Books/Book2.jpg" alt="Book 2"></a>
+              <h5><a href="book2.html">Database on Medicinal Plants used in Ayurveda (Volume 1)</a></h5>
+          </div>
+          <!-- Add more books as needed -->
+          <div class="book">
+            <a href="https://amzn.eu/d/9aTgYLI"><img src="../static/assets/img/Books/B3.jpg" alt="Book 2"></a>
+            <h5><a href="book2.html">Ayurvediya Vyadhivigyan (Hindi Edition)</a></h5>
+        </div>
+
+        <div class="book">
+          <a href="https://amzn.eu/d/5jyPORo"><img src="../static/assets/img/Books/b4.jpg" alt="Book 4"></a>
+          <h5><a href="book2.html">Database on Medicinal Plants used in Ayurveda (Volume 1)</a></h5>
+      </div>
+
+      <div class="book">
+        <a href="https://amzn.eu/d/6h76JQt"><img src="../static/assets/img/Books/b5.jpg" alt="Book 5"></a>
+        <h5><a href="book2.html">Database on Medicinal Plants used in Ayurveda (Volume 1)</a></h5>
+    </div>
+    <div class="book">
+      <a href="https://amzn.eu/d/53Hr4eU"><img src="../static/assets/img/Books/b6.jpg" alt="Book 6"></a>
+      <h5><a href="book2.html">Database on Medicinal Plants used in Ayurveda (Volume 1)</a></h5>
+  </div>
+  <div class="book">
+    <a href="https://arcus-www.amazon.in/dp/8120818806?ref_=cm_sw_r_cp_ud_dp_023AB5PRHQMFGPNKMSWR"><img src="../static/assets/img/Books/b7.jpg" alt="Book 7"></a>
+    <h5><a href="book2.html">Database on Medicinal Plants used in Ayurveda (Volume 1)</a></h5>
+</div>
+<div class="book">
+  <a href="https://amzn.eu/d/5nOfsEC"><img src="../static/assets/img/Books/b8.jpg" alt="Book 8"></a>
+  <h5><a href="book2.html">Database on Medicinal Plants used in Ayurveda (Volume 1)</a></h5>
+</div>
+<div class="book">
+<a href="https://en.wikipedia.org/wiki/Charaka_Samhita"><img src="../static/assets/img/Books/b9.jpg" alt="Book 9"></a>
+<h5><a href="book2.html">Charak Samhita</a></h5>
+</div>
+<div class="book">
+<a href="book2.html"><img src="../static/assets/img/Books/b1.jpg" alt="Book 2"></a>
+<h5><a href="book2.html">Database on Medicinal Plants used in Ayurveda (Volume 1)</a></h5>
+</div>
+<div class="book">
+<a href="book2.html"><img src="../static/assets/img/Books/b10.jpg" alt="Book 2"></a>
+<h5><a href="https://www.amazon.in/Ayurvedic-Herbs-Clinical-Traditional-Medicine/dp/0789017687/ref=sr_1_1_sspa?dib=eyJ2IjoiMSJ9.2ROxUaSVkbR927ZRMNu6yedSc0VhIFdHUPan6NUE2n_N54d76LG5Wo9OofNnfyK8c9lBOmSWhzYz_t6rff4mYoGDL7NJ-gIqxkkvC4kjTGTVCyZMaUnZAKk5m2big9Obnw64aat0r0YjLFfaNSZDXTtLPKoRN6bvqXhAkm6j-JzDiGPTYkfE2k3YyLV-odnZdSM_p5V5QkcDv3xTIl9gq-9beapqXrQAmf4a8B-KTP8.5ftcMK0kF3VNSHAc0RMno-1Dstic68HP8qtOqRrX8nE&dib_tag=se&keywords=ayurvedic+books&qid=1714721253&sr=8-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1"></a></h5>
+</div>
+      </div>
+  </div>
+  
+</section>    
+
+
+<section></section>
+<!--SECTION 03-->
+<!--SECTION 04-->
+  <section class="pt-20 pb-48">
+  <div class="container mx-auto px-4">
+    <div class="flex flex-wrap justify-center text-center mb-24">
+      <div class="w-full lg:w-6/12 px-4">
+        <h2 class="text-4xl font-semibold">Our Team</h2>
+        <p class="text-lg leading-relaxed m-4 text-gray-600">
+          The Experts Behind Our Innovative ChatBot
+        </p>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap">
+
+        <!-- Team members -->
+      <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
+        <div class="px-6">
+          <img alt="..." src="../static/assets/img/team1.jpg" class="shadow-lg rounded-full max-w-full mx-auto"
+            style="max-width: 130px;"/>
+          <div class="pt-6 text-center">
+            <h5 class="text-xl font-bold">Suzan Nadaf</h5>
+            <p class="mt-1 text-sm text-gray-500 uppercase font-semibold">
+              Team Lead & Backend
+            </p>
+            <div class="mt-6">
+              <button
+                class="bg-red-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                type="button"
+              >
+                <i class="fab fa-google"></i></button
+              ><button
+                class="bg-blue-400 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                type="button"
+              >
+                <i class="fab fa-twitter"></i></button
+              ><button
+                class="bg-gray-800 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                type="button"
+              >
+                <i class="fab fa-instagram"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
+        <div class="px-6">
+          <img
+            alt="..."
+            src="../static/assets/img/team_2.jpg"
+            class="shadow-lg rounded-full max-w-full mx-auto"
+            style="max-width: 130px;"
+          />
+          <div class="pt-6 text-center">
+            <h5 class="text-xl font-bold">Rutuja Raut</h5>
+            <p class="mt-1 text-sm text-gray-500 uppercase font-semibold">
+              ML & Backend Developer
+            </p>
+            <div class="mt-6">
+              <button
+                class="bg-red-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                type="button"
+              >
+                <i class="fab fa-google"></i></button
+              ><button
+                class="bg-blue-400 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                type="button"
+              >
+                <i class="fab fa-twitter"></i></button
+              ><button
+                class="bg-gray-800 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                type="button"
+              >
+                <i class="fab fa-instagram"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
+        <div class="px-6">
+          <img
+            alt="..."
+            src="../static/assets/img/team_3.jpg"
+            class="shadow-lg rounded-full max-w-full mx-auto"
+            style="max-width: 120px;"
+          />
+          <div class="pt-6 text-center">
+            <h5 class="text-xl font-bold">Nikhi Kurle </h5>
+            <p class="mt-1 text-sm text-gray-500 uppercase font-semibold">
+              ML & FrontEnd Developer
+            </p>
+            <div class="mt-6">
+              <button
+                class="bg-red-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                type="button"
+              >
+                <i class="fab fa-google"></i></button
+              ><button
+                class="bg-blue-400 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                type="button"
+              >
+                <i class="fab fa-twitter"></i></button
+              ><button
+                class="bg-gray-800 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                type="button"
+              >
+                <i class="fab fa-instagram"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
+        <div class="px-6">
+            <img
+                alt="..."
+                src="../static/assets/img/team4.jpg"
+                class="shadow-lg rounded-full max-w-full mx-auto"
+                style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%;"
+            />
+            <div class="pt-6 text-center">
+                <h5 class="text-xl font-bold">Shurusti Chitkoti</h5>
+                <p class="mt-1 text-sm text-gray-500 uppercase font-semibold">
+                    Backend Developer
+                </p>
+                <div class="mt-6">
+                  <button
+                  class="bg-red-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                  type="button"
+                >
+                  <i class="fab fa-google"></i></button
+                ><button
+                  class="bg-blue-400 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                  type="button"
+                >
+                  <i class="fab fa-twitter"></i></button
+                ><button
+                  class="bg-gray-800 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                  type="button"
+                >
+                  <i class="fab fa-instagram"></i>
+                </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="w-full md:w-6/12 lg:w-3/12 lg:mb-0 mb-12 px-4">
+      <div class="px-6">
+          <img
+              alt="..."
+              src="../static/assets/img/team5.jpg"
+              class="shadow-lg rounded-full max-w-full mx-auto"
+              style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%;"
+          />
+          <div class="pt-6 text-center">
+              <h5 class="text-xl font-bold">Safura Perampalli</h5>
+              <p class="mt-1 text-sm text-gray-500 uppercase font-semibold">
+                  ML & Backend Developer
+              </p>
+              <div class="mt-6">
+                <button
+                class="bg-red-600 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                type="button"
+              >
+                <i class="fab fa-google"></i></button
+              ><button
+                class="bg-blue-400 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                type="button"
+              >
+                <i class="fab fa-twitter"></i></button
+              ><button
+                class="bg-gray-800 text-white w-8 h-8 rounded-full outline-none focus:outline-none mr-1 mb-1"
+                type="button"
+              >
+                <i class="fab fa-instagram"></i>
+              </button>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+
+    </div>
+  </div>
+</section>
+  <!--SECTION 03-->
+
+<section class="pb-20 relative block bg-gray-900">
+  <div
+    class="bottom-auto top-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden -mt-20"
+    style="height: 80px;"
+  >
+    <svg
+      class="absolute bottom-0 overflow-hidden"
+      xmlns="http://www.w3.org/2000/svg"
+      preserveAspectRatio="none"
+      version="1.1"
+      viewBox="0 0 2560 100"
+      x="0"
+      y="0"
+    >
+      <polygon
+        class="text-gray-900 fill-current"
+        points="2560 0 2560 100 0 100"
+      ></polygon>
+    </svg>
+  </div>
+  <div class="container mx-auto px-4 lg:pt-24 lg:pb-64">
+    <div class="flex flex-wrap text-center justify-center">
+      <div class="w-full lg:w-6/12 px-4">
+        <h2 class="text-3xl font-semibold text-white">Login For  Personalized Experience</h2><br>
+        <p class="text-lg leading-relaxed mt-4 mb-4 text-gray-500">
+         We are committed to providing our users
+            with the most personalized and effective healthcare experience possible.
+            To get started, simply Login for our Chatbot,
+            and gain access to our powerful disease prediction and Ayurvedic medicine recommendation systems.
+            By inputting your symptoms and using our advanced machine learning algorithms,
+            you can receive accurate and reliable disease predictions,
+            and natural remedies that can be easily accessed from home. <br>
+            Join our community today and prioritize your health with AyuCare.
+        </p>
+          <br>
+          <center> <a href="{{ url_for('register') }}">
+                <button class=" text-xs font-bold uppercase px-4 py-2 rounded outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 rounded-full transition duration-150
+                    ease-in-out bg-gradient-to-r from-green-400 to-blue-500 hover:from-pink-500 hover:to-yellow-500 ..."
+                  type="button"
+                  style="transition: all 0.15s ease 0s;">
+                  Login
+                </button></a></center>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+</main>
+
+<!-- Footer -->
+<footer class="bg-gray-200">
+    <div class="container mx-auto px-4 py-8">
+        <div class="flex justify-between">
+            <div>
+                <h5 class="text-lg font-bold text-gray-900">AyurAid</h5>
+                <p class="mt-4 text-gray-600">Connecting traditional Ayurveda with modern technology.</p>
+            </div>
+            <div>
+                <h5 class="text-lg font-bold text-gray-900">Quick Links</h5>
+                <ul class="mt-4">
+                    <li><a href="#" class="text-indigo-500 hover:underline">About Us</a></li>
+                    <li><a href="{{ url_for('service') }}" class="text-indigo-600 hover:underline">Services</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+   <script>
+    function toggleNavbar(collapseID) {
+      document.getElementById(collapseID).classList.toggle("hidden");
+      document.getElementById(collapseID).classList.toggle("block");
+        const beginButton = document.getElementById("beginButton");
+        beginButton.addEventListener("click", function() {
+        window.location.href = "signin.html";
+});
+    }
+  </script>
+<!-- Typing animation-->
+<script>
+  const sequences = [
+    "Ayurveda is a natural system of medicine that originated in India over 3,000 years ago. It's a branch of Indian science that deals with medicine, herbalism, taxology, anatomy, surgery, and alchemy. The basic literature of Ayurveda, known as Samhita, are written in Sanskrit.",
+    "आयुर्वेदः भारतीय प्राचीन संस्कृति एवं दर्शन का एक महत्वपूर्ण अंग है। इसे भारतीय उपमहाद्वीप और नेपाल में व्यापक रूप से अमल में लाया जाता है। आयुर्वेद के अनुसार, स्वस्थ रहने का रहस्य नियमित आहार, योग, प्राणायाम, ध्यान, और शारीरिक और मानसिक शुद्धि में है। इसका मुख्य उद्देश्य समग्र स्वास्थ्य और विकास को प्राप्त करना है।"
+  ];
+
+  let sequenceIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+
+  const typingAnimation = document.getElementById("typing-animation");
+
+  function type() {
+    const currentSequence = sequences[sequenceIndex];
+    typingAnimation.textContent = currentSequence.substring(0, charIndex);
+
+    if (!isDeleting) {
+      charIndex++;
+      if (charIndex > currentSequence.length) {
+        isDeleting = true;
+        setTimeout(type, 2000); // Delay before starting to delete
+      }
+    } else {
+      charIndex--;
+      if (charIndex === 0) {
+        isDeleting = false;
+        sequenceIndex = (sequenceIndex + 1) % sequences.length;
+      }
+    }
+
+    const typingSpeed = isDeleting ? 40 : 50; // Adjust typing speed
+    setTimeout(type, typingSpeed);
+  }
+
+  
+  document.addEventListener("DOMContentLoaded", () => {
+    type(); 
+  });
+</script>
+
+<script>
+  // JavaScript to handle sliding effect
+  const slidingWindow = document.getElementById('sliding-window');
+  let translateValue = 0;
+
+  setInterval(() => {
+      translateValue -= 220; // Adjust width of each book container + margin-right
+      if (translateValue === -220 * (slidingWindow.childElementCount - 5)) {
+          translateValue = 0;
+      }
+      slidingWindow.style.transform = `translateX(${translateValue}px)`;
+  }, 3000); // Adjust the interval as needed (milliseconds)
+</script>
+
+
+
+<style>
+  #typing-animation {
+    font-family: 'cursive', Nunito Sans; /* Replace 'Arial' with your desired font */
+    font-size: 18px; /* Adjust font size as needed */
+    font-weight: 500; /* Adjust font weight as needed */
+    color: #333; /* Adjust text color as needed */
+  }
+
+
+/* Styles for sliding window and books */
+#sliding-window-section {
+    overflow: hidden;
+}
+
+.sliding-window {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.book {
+    flex: 0 0 auto;
+    width: 250px; /* Adjust the width of each book */
+    text-align: center;
+    margin-right: 30px; /* Adjust the spacing between books */
+}
+
+.book img {
+    width: auto; /* Ensure the images fill the container */
+    height: auto;
+}
+
+
+
+</style>
+
+
+
+
+  </body>
+
+</html>
